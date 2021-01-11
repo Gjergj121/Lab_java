@@ -22,8 +22,19 @@ public class SudokuZgjidhur {
 	
 	public boolean zgjidhja_sudokut () {
 		
-		int i, j, k, l;
-		int indeks_i, indeks_j;
+		boolean rreshti = kontrollo_rresht();
+		boolean kolona = kontrollo_kolone();
+		boolean blloku = kontrollo_bllok();
+		
+		if(rreshti == true && kolona == true && blloku == true)
+			return true;
+		
+		return false;
+	}
+	
+	private boolean kontrollo_rresht() {
+		
+		int i, j, k;
 		
 		// kontrolloj nese secili element eshte unik ne rreshtin e tij
 		for(i = 0; i < 9; i++) {
@@ -45,6 +56,14 @@ public class SudokuZgjidhur {
 			
 		}
 		
+		return true;
+		
+	}
+	
+	private boolean kontrollo_kolone() {
+		
+		int i, j, k;
+		
 		// kontrolloj nese secili element eshte unik ne kolonen e tij
 		for(j = 0; j < 9; j++) {
 			
@@ -65,6 +84,14 @@ public class SudokuZgjidhur {
 			
 		}
 		
+		return true;
+		
+	}
+	
+	private boolean kontrollo_bllok() {
+		
+		int i, j, k, l;
+		int indeks_i, indeks_j;
 		
 		// kontrolloj nese secili element eshte unik ne bllokun e tij
 		
@@ -94,6 +121,7 @@ public class SudokuZgjidhur {
 					
 				}
 				
+				
 			}
 			
 		}
@@ -102,4 +130,6 @@ public class SudokuZgjidhur {
 		
 	}
 
+	
+	
 }
